@@ -1,0 +1,250 @@
+/* CSS Custom Properties for Color Palette */
+:root {
+    --color-primary: #1A1A1A;     /* Charcoal black */
+    --color-secondary: #F8F9FA;   /* Off-white */
+    --color-accent: #007AFF;      /* System blue */
+    --color-background: #FFFFFF;  /* Pure white */
+    --color-text: #333333;        /* Dark grey */
+    --color-border: #E5E5E7;      /* Light grey */
+    
+    --color-purple: #7C3AED;      /* Purple accent for cards */
+    --color-yellow: #F59E0B;      /* Yellow accent for cards */
+    --color-light-purple: #DDD6FE; /* Light purple background */
+    --color-light-yellow: #FEF3C7; /* Light yellow background */
+    
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+    --border-radius: 12px;
+    --gap: 24px;
+    --padding: 16px;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: var(--gap);
+}
+
+/* Bento Grid Container */
+.bento-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: var(--gap);
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-template-areas:
+        "hero hero schedule schedule"
+        "platforms create schedule schedule"
+        "platforms ai growth growth"
+        "consistent followers followers followers";
+}
+
+/* Grid Item Positioning */
+.hero-card { grid-area: hero; }
+.create-card { grid-area: create; }
+.ai-card { grid-area: ai; }
+.schedule-card { grid-area: schedule; }
+.platforms-card { grid-area: platforms; }
+.consistent-card { grid-area: consistent; }
+.growth-card { grid-area: growth; }
+.followers-card { grid-area: followers; }
+
+/* Base Card Styles */
+.bento-card {
+    background: var(--color-background);
+    border-radius: var(--border-radius);
+    padding: var(--padding);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.bento-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Typography */
+h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    font-size: 1rem;
+    color: var(--color-text);
+    opacity: 0.8;
+}
+
+.highlight {
+    color: var(--color-accent);
+}
+
+.stat {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* Specific Card Styles */
+.hero-card {
+    background: linear-gradient(135deg, var(--color-purple) 0%, #8B5CF6 100%);
+    color: white;
+    padding: 2rem;
+}
+
+.hero-card .highlight {
+    color: #FEF3C7;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.rating p {
+    color: white;
+    opacity: 0.9;
+    font-size: 0.875rem;
+}
+
+.create-card {
+    background: var(--color-light-yellow);
+}
+
+.ai-card {
+    background: var(--color-light-yellow);
+}
+
+.schedule-card {
+    background: var(--color-light-purple);
+    padding: 1.5rem;
+}
+
+.platforms-card {
+    background: var(--color-secondary);
+}
+
+.consistent-card {
+    background: var(--color-light-yellow);
+}
+
+.growth-card {
+    background: var(--color-secondary);
+    text-align: center;
+}
+
+.followers-card {
+    background: linear-gradient(135deg, var(--color-purple) 0%, #8B5CF6 100%);
+    color: white;
+    padding: 1.5rem;
+}
+
+/* Image Styles */
+.card-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: auto;
+    border-radius: 8px;
+}
+
+.stars {
+    height: 20px;
+    width: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bento-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "hero"
+            "schedule"
+            "create"
+            "ai"
+            "platforms"
+            "consistent"
+            "growth"
+            "followers";
+    }
+    
+    body {
+        padding: 1rem;
+    }
+    
+    .bento-card {
+        min-height: 200px;
+    }
+    
+    :root {
+        --gap: 16px;
+        --padding: 1rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .bento-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "hero hero"
+            "schedule schedule"
+            "create ai"
+            "platforms platforms"
+            "consistent growth"
+            "followers followers";
+    }
+}
+
+@media (min-width: 1025px) {
+    .bento-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .bento-card {
+        min-height: 180px;
+    }
+}
+
+/* Enhanced Accessibility */
+.bento-card:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .bento-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .bento-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--color-border);
+    }
+}
