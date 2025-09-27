@@ -37,15 +37,14 @@ body {
 .bento-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, auto);
+    grid-template-rows: repeat(3, auto);
     gap: var(--gap);
     max-width: 1200px;
     margin: 0 auto;
     grid-template-areas:
-        "hero hero schedule schedule"
-        "platforms create schedule schedule"
-        "platforms ai growth growth"
-        "consistent followers followers followers";
+        "create hero hero schedule"
+        "ai platforms consistent schedule"  
+        "growth followers followers followers";
 }
 
 /* Grid Item Positioning */
@@ -71,6 +70,7 @@ body {
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    min-height: 200px;
 }
 
 .bento-card:hover {
@@ -110,7 +110,7 @@ p {
 
 /* Specific Card Styles */
 .hero-card {
-    background: linear-gradient(135deg, var(--color-purple) 0%, #8B5CF6 100%);
+    background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
     color: white;
     padding: 2rem;
 }
@@ -133,33 +133,35 @@ p {
 }
 
 .create-card {
-    background: var(--color-light-yellow);
+    background: #F5F1E8;
 }
 
 .ai-card {
-    background: var(--color-light-yellow);
+    background: #FEF3C7;
 }
 
 .schedule-card {
-    background: var(--color-light-purple);
+    background: #E0E7FF;
     padding: 1.5rem;
 }
 
 .platforms-card {
-    background: var(--color-secondary);
+    background: #FFFFFF;
+    border: 1px solid #E5E5E7;
 }
 
 .consistent-card {
-    background: var(--color-light-yellow);
+    background: #FEF3C7;
 }
 
 .growth-card {
-    background: var(--color-secondary);
+    background: #FFFFFF;
+    border: 1px solid #E5E5E7;
     text-align: center;
 }
 
 .followers-card {
-    background: linear-gradient(135deg, var(--color-purple) 0%, #8B5CF6 100%);
+    background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
     color: white;
     padding: 1.5rem;
 }
@@ -183,13 +185,13 @@ p {
         grid-template-columns: 1fr;
         grid-template-areas:
             "hero"
-            "schedule"
-            "create"
-            "ai"
             "platforms"
             "consistent"
+            "schedule"
+            "followers"
             "growth"
-            "followers";
+            "create"
+            "ai";
     }
     
     body {
@@ -210,12 +212,10 @@ p {
     .bento-container {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
-            "hero hero"
-            "schedule schedule"
-            "create ai"
-            "platforms platforms"
-            "consistent growth"
-            "followers followers";
+            "create hero"
+            "ai schedule"
+            "platforms consistent"
+            "growth followers";
     }
 }
 
